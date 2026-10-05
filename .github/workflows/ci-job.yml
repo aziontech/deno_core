@@ -37,7 +37,7 @@ jobs:
 
       # TODO(mmastrac): these could be extracted to a `ci-common.yml`
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install ARM runner tools
         if: ${{ inputs.os == 'ubuntu-22.04-arm64' }}
@@ -48,13 +48,13 @@ jobs:
           sudo apt-get install -y --no-install-recommends unzip clang
 
       - name: Install Rust
-        uses: dsherret/rust-toolchain-file@v1
+        uses: dsherret/rust-toolchain-file@3551321aa44dd44a0393eb3b6bdfbc5d25ecf621 # v1
 
       - name: Install Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@11b63cf76cfcafb4e43f97b6cad24d8e8438f62d # v1.5.2
 
       # https://github.com/marketplace/actions/rust-cache
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
         with:
           prefix-key: "v0-rust"
           shared-key: "${{ inputs.label }}-${{ inputs.job }}"

@@ -3,7 +3,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Rust (nightly)
-      uses: dtolnay/rust-toolchain@nightly
+      uses: dtolnay/rust-toolchain@0e28dd9a7764e5f83064112bb1f24025a14c313c # nightly
     - name: Cargo test (miri)
       shell: bash
       run: |

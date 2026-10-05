@@ -38,7 +38,7 @@ jobs:
       # matrix below
       # Test this using jq/yq: cat config.yaml | yq -o json | jq
       - name: Read job configuration (PR/main fast-build)
-        uses: cloudposse/github-action-yaml-config-query@main
+        uses: cloudposse/github-action-yaml-config-query@b6aa644f1a9c6e2542ab6495e65578d36bc6c324 # main
         id: read-jobs-fast
         if: github.repository == 'denoland/deno_core' && contains(github.event.pull_request.labels.*.name, 'fast-build') && (!startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main')
         with:
@@ -48,7 +48,7 @@ jobs:
               os: ubuntu-24.04
               jobs: [lint, test]
       - name: Read job configuration (PR/main)
-        uses: cloudposse/github-action-yaml-config-query@main
+        uses: cloudposse/github-action-yaml-config-query@b6aa644f1a9c6e2542ab6495e65578d36bc6c324 # main
         id: read-jobs-pr
         if: github.repository == 'denoland/deno_core' && (!startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main')
         with:
@@ -70,7 +70,7 @@ jobs:
               os: windows-2022
               jobs: [lint, test]
       - name: Read job configuration (tag)
-        uses: cloudposse/github-action-yaml-config-query@main
+        uses: cloudposse/github-action-yaml-config-query@b6aa644f1a9c6e2542ab6495e65578d36bc6c324 # main
         id: read-jobs-tag
         if: github.repository == 'denoland/deno_core' && startsWith(github.ref, 'refs/tags/')
         with:
