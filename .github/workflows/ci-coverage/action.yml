@@ -3,13 +3,13 @@ runs:
   using: "composite"
   steps:
     - name: Install cargo-llvm-cov
-      uses: taiki-e/install-action@cargo-llvm-cov
+      uses: taiki-e/install-action@24b35e792c4eb272ee06051198c72db034fd0be3 # cargo-llvm-cov
     - name: Generate code coverage
       shell: bash
       run: |
         cargo llvm-cov --workspace --release --all-features --bins --tests --examples --exclude deno_ops_compile_test_runner --lcov --output-path lcov.info
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4.6.0
       with:
         files: lcov.info
         fail_ci_if_error: false
